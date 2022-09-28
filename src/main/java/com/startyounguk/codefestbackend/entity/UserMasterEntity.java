@@ -1,29 +1,28 @@
 package com.startyounguk.codefestbackend.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "user_master")
 public class UserMasterEntity {
 
     @Id
+    @GeneratedValue
     @Column(name = "entity_id")
-    private String entityId;
+    private Integer entityId;
 
     @Column(name = "locked")
-    private String locked;
+    private Character locked;
 
     @Column(name = "password")
     private String password;
 
     @Column(name = "deleted")
-    private String deleted;
+    private Character deleted;
 
     @Column(name = "user_type_id")
-    private String userTypeId;
+    private Integer userTypeId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -35,30 +34,50 @@ public class UserMasterEntity {
     private String email;
 
     @Column(name = "contact")
-    private String contact;
+    private Integer contact;
 
     @Column(name = "password_changed_date")
-    private String passwordChangedDate;
+    private Date passwordChangedDate;
 
     @Column(name = "created_date")
-    private String createdDate;
+    private Date createdDate;
 
     @Column(name = "last_login_date")
-    private String lastLoginDate;
+    private Date lastLoginDate;
 
-    public String getEntityId() {
+    @Column(name = "gender")
+    private Character gender;
+
+    @Column(name = "dob")
+    private Date dob;
+
+    @Column(name = "nwsl_subscription")
+    private Character nwslSubscription;
+
+    @Column(name = "user_type")
+    private String userType;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public Integer getEntityId() {
         return entityId;
     }
 
-    public void setEntityId(String entityId) {
+    public void setEntityId(Integer entityId) {
         this.entityId = entityId;
     }
 
-    public String getLocked() {
+    public Character getLocked() {
         return locked;
     }
 
-    public void setLocked(String locked) {
+    public void setLocked(Character locked) {
         this.locked = locked;
     }
 
@@ -70,19 +89,19 @@ public class UserMasterEntity {
         this.password = password;
     }
 
-    public String getDeleted() {
+    public Character getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(String deleted) {
+    public void setDeleted(Character deleted) {
         this.deleted = deleted;
     }
 
-    public String getUserTypeId() {
+    public Integer getUserTypeId() {
         return userTypeId;
     }
 
-    public void setUserTypeId(String userTypeId) {
+    public void setUserTypeId(Integer userTypeId) {
         this.userTypeId = userTypeId;
     }
 
@@ -110,35 +129,59 @@ public class UserMasterEntity {
         this.email = email;
     }
 
-    public String getContact() {
+    public Integer getContact() {
         return contact;
     }
 
-    public void setContact(String contact) {
+    public void setContact(Integer contact) {
         this.contact = contact;
     }
 
-    public String getPasswordChangedDate() {
+    public Date getPasswordChangedDate() {
         return passwordChangedDate;
     }
 
-    public void setPasswordChangedDate(String passwordChangedDate) {
+    public void setPasswordChangedDate(Date passwordChangedDate) {
         this.passwordChangedDate = passwordChangedDate;
     }
 
-    public String getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
-    public String getLastLoginDate() {
+    public Date getLastLoginDate() {
         return lastLoginDate;
     }
 
-    public void setLastLoginDate(String lastLoginDate) {
+    public void setLastLoginDate(Date lastLoginDate) {
         this.lastLoginDate = lastLoginDate;
+    }
+
+    public Character getGender() {
+        return gender;
+    }
+
+    public void setGender(Character gender) {
+        this.gender = gender;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public Character getNwslSubscription() {
+        return nwslSubscription;
+    }
+
+    public void setNwslSubscription(Character nwslSubscription) {
+        this.nwslSubscription = nwslSubscription;
     }
 }
