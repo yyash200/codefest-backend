@@ -62,16 +62,16 @@ public class SignUpLoginController {
         return 'M';
     }
 
-    @PostMapping(path = "login", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-    public LoginResponse login(@RequestParam String email, @RequestParam String password) {
+    @PostMapping(path = "login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public LoginResponse login(@RequestBody User user) {
         UserMasterEntity userDetails;
-        try {
-            userDetails = userMasterRepository.findByEmail(email);
-        } catch (UsernameNotFoundException e) {
+        String email = user.getEmailId();
+        userDetails = userMasterRepository.findByEmail(email);
+        if (userDetails == null) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found");
         }
 
-        if(password.equals(userDetails.getPassword())) {
+        if(passwordEncoder.matches(user.getPassword(), userDetails.getPassword())) {
             Map<String, String> claims = new HashMap<>();
             claims.put("email", email);
             claims.put("userId", userDetails.getEntityId().toString());
