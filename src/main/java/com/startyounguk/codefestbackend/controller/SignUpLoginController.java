@@ -41,7 +41,7 @@ public class SignUpLoginController {
         userMasterEntity.setFirstName(user.getFirstName());
         userMasterEntity.setLastName(user.getLastName());
         userMasterEntity.setEmail(user.getEmailId());
-        userMasterEntity.setPassword(user.getPassword());
+        userMasterEntity.setPassword(passwordEncoder.encode(user.getPassword()));
         userMasterEntity.setLocked(new Character('N'));
         userMasterEntity.setDeleted(new Character('N'));
         userMasterEntity.setContact(Integer.parseInt("12345678"));
