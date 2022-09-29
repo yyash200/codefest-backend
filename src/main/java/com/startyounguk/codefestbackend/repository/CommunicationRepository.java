@@ -13,7 +13,6 @@ import java.util.List;
 public interface CommunicationRepository extends
         JpaRepository<CommunicationEntity, Integer>, JpaSpecificationExecutor<CommunicationEntity> {
 
-    @Query("SELECT t FROM CommunicationEntity t WHERE t.msgStatus = ?1")
     List<CommunicationEntity> findByMsgStatus(String msgStatus);
 
 }

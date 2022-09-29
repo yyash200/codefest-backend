@@ -20,7 +20,6 @@ public class AdminController {
 
     @GetMapping(value = "/messages")
     public ResponseEntity<List<CommunicationEntity>> getMessages() {
-        List<CommunicationEntity> response = adminService.getMessages();
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(adminService.getMessages());
     }
 }
