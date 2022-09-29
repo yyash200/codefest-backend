@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
     public UserDetails getUserDetails(String email) {
         UserDetails response = new UserDetails();
         UserMasterEntity userMasterEntity = userMasterRepository.findByEmail(email);
-        response.setName(userMasterEntity.getFirstName()+" "+userMasterEntity.getLastName());
-        response.setUserType(userMasterEntity.getUserTypeId().toString());
+        response.setName(userMasterEntity.getFirstName());
+        response.setUserType(userMasterEntity.getUserType());
         return response;
     }
 }

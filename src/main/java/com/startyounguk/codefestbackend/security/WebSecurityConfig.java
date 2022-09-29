@@ -26,9 +26,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         configurer
                                 .antMatchers(
                                         "/error",
-                                        "/login",
-                                        "/land",
-                                        "/signUp"
+                                        "/api/login",
+                                        "/api/land",
+                                        "/api/signUp"
                                 )
                                 .permitAll()
                                 .anyRequest()
